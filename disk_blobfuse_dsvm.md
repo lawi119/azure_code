@@ -41,7 +41,13 @@ mkdir text_data
 ```
 blobfuse /datadrive/text_data --tmp-path=/mnt/resource/blobfusetmp --config-file=~/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
-8. To unmount type this command:
+8. To mount the drive so that it is persistent even when you restart VM. Add this line to the bottom of /etc/fstab.
+```
+sudo vim /etc/fstab
+
+blobfuse /datadrive/text_data fuse defaults,_netdev,--tmp-path=/mnt/resource/blobfusetmp,--config-file=~/fuse_connection.cfg,--log-level=LOG_DEBUG,allow_other 0 0
+```
+9. To unmount type this command:
 ```
 sudo umount /datadrive/text_data
 ```
