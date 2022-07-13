@@ -37,7 +37,7 @@ chmod 600 fuse_connection.cfg
 cd /datadrive
 mkdir text_data
 ```
-7. Mount with this command. Check to make sure you can now access the files. Now, when you add data to /datadrive/text_data it will automatically be uploaded to the storage account and vice versa.
+7. Mount with this command. Check to make sure you can now access the files. Now, when you add data to /datadrive/text_data it will automatically be uploaded to the storage account and vice versa. (Note: When you restart the VM you will lose the mount and therefore have to run this command again).
 ```
 blobfuse /datadrive/text_data --tmp-path=/mnt/resource/blobfusetmp --config-file=~/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
